@@ -68,14 +68,14 @@ class FSM {
         let result = [];       
         let that = this; 
         if (event) {
-            Object.keys(this._config.states).map((state) => { 
-                Object.keys(that._config.states[state].transitions).map((transition) => { 
+            Object.keys(this._config.states).forEach((state) => { 
+                Object.keys(that._config.states[state].transitions).forEach((transition) => { 
                     if (transition === event) result.push(state)
                 }); 
             });
         }
         else {        
-            Object.keys(this._config.states).map((state) => { result.push(state); });
+            Object.keys(this._config.states).forEach((state) => { result.push(state); });
         }
         return result;
     }
